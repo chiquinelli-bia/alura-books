@@ -4,11 +4,11 @@
 
 # Alura Books
 
-Estrutura inicial do projeto criada a partir do curso "curso" da Alura
+Estrutura inicial do projeto criada a partir do curso "HTML e CSS: responsividade com mobile-first" da Alura
 
 ## 🔨 Funcionalidades do projeto
 
-O Alura Books é um projeto desenvolvido no curso "HTML e CSS: responsividade com mobile-first" da Alura é um site fictício da AluraBooks, uma loja virtual especializada em livros técnicos de tecnologia. O objetivo do projeto é criar um site responsivo com layouts para dispositivos móveis, tablets e desktops. Durante o desenvolvimento, o foco é aplicar a metodologia mobile-first, utilizando media queries para garantir que a interface se ajuste corretamente a diferentes tamanhos de tela, sem funcionalidades de back-end ou integração com APIs.
+O Alura Books é um site fictício da AluraBooks, uma loja virtual especializada em livros técnicos de tecnologia. O objetivo do projeto é criar um site responsivo com layouts para dispositivos móveis, tablets e desktops. Durante o desenvolvimento, o foco é aplicar a metodologia mobile-first, utilizando media queries para garantir que a interface se ajuste corretamente a diferentes tamanhos de tela, sem funcionalidades de back-end ou integração com APIs.
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
