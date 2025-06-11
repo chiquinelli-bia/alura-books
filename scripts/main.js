@@ -2,6 +2,8 @@ let livros = [];
 const endpointDaAPI = 'https://guilhermeonrails.github.io/casadocodigo/livros.json';
 getBuscarLivrosDaAPI();
 const secaoDeLivros = document.getElementById('livros');
+  const elementoTotalDeLivros = document.getElementById('valor_total_livros_disponiveis');
+
 
 async function getBuscarLivrosDaAPI() {
   const res = await fetch(endpointDaAPI);
@@ -19,6 +21,7 @@ function aplicarDesconto (livros) {
   return livrosComDesconto;
 }
 function exibirlivro(listaDeLivros) {
+  elementoTotalDeLivros.innerHTML = '';
   secaoDeLivros.innerHTML = '';
   listaDeLivros.forEach(livro => {
     let disponibilidade = livro.quantidade > 0 ? 'livro__imagens' : 'livro__imagens indisponivel';
@@ -41,14 +44,21 @@ btn.forEach(btn => btn.addEventListener('click', filtrarLivros))
 
 function filtrarLivros() {
   const categoria = this.value;
-  let livrosFiltrados = categoria === 'disponivel' ? filtrarQuantidade() : filtrarCategorias();
+  let livrosFiltrados = categoria === 'disponivel' ? filtrarQuantidade() : filtrarCategorias(categoria);
   exibirlivro(livrosFiltrados);
+  if(categoria == 'disponivel') {
+    const valorTotal = calcularTotalDeLivros(livrosFiltrados);
+    exibirTotal(valorTotal);
+  }
 }
 function filtrarQuantidade() {
- livros.filter(livro => livro.quantidade > 0);
+  return livros.filter(livro => livro.quantidade > 0);
 }
-function filtrarCategorias() {
-  livros.filter(livro => livro.categoria === categoria);
+function filtrarCategorias(categoria) {
+  return livros.filter(livro => livro.categoria === categoria);
+}
+function calcularTotalDeLivros(livros) {
+  return livros.reduce((acc, livro) => acc + livro.preco, 0).toFixed(2);
 }
 const btnOrdenar = document.getElementById('btnOrdenarPorPreco');
 btnOrdenar.addEventListener('click', () => {
@@ -56,5 +66,11 @@ btnOrdenar.addEventListener('click', () => {
   exibirlivro(livrosOrdenados);
 })
 
+function exibirTotal(valorTotal) {
+  elementoTotalDeLivros.innerHTML = `
+  <div class="livros__disponiveis">
+    <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
+  </div>`
+}
 
 
