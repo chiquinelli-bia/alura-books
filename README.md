@@ -27,7 +27,7 @@ As técnicas e tecnologias utilizadas pra isso são:
 - `Flexbox:` Usado para criar layouts flexíveis e dinâmicos, permitindo um controle mais eficiente da disposição dos elementos.
 - `Grid Layout:` Complementa o Flexbox, ideal para a criação de layouts mais complexos e com múltiplas colunas.
 - `Media Queries:` Fundamentais para a criação de designs responsivos, ajustando o layout conforme o tamanho da tela.
-  - _Pseudo-classes e elementos_ `:hover,` `:active,` `:focus,` ::before,` `::after,` `::placeholder`
+  - _Pseudo-classes e elementos_ `:hover,` `:active,` `:focus,` ``::before,` `::after, `::placeholder`
   - _Positioning_ como `relative` e `absolute`
   - _Combinadores CSS_ 
   - _Unidades de Viewport_  como `vw,` `vh` `vmin,` `vmax`
