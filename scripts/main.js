@@ -6,7 +6,6 @@ const secaoDeLivros = document.getElementById('livros');
 async function getBuscarLivrosDaAPI() {
   const res = await fetch(endpointDaAPI);
   livros = await res.json();
-  console.table(livros);
   let livrosComDesconto = aplicarDesconto(livros);
   exibirlivro(livrosComDesconto);
 }
@@ -22,8 +21,9 @@ function aplicarDesconto (livros) {
 function exibirlivro(listaDeLivros) {
   secaoDeLivros.innerHTML = '';
   listaDeLivros.forEach(livro => {
+    let disponibilidade = livro.quantidade > 0 ? 'livro__imagens' : 'livro__imagens indisponivel';
     secaoDeLivros.innerHTML += `<div class="livro">
-      <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
+      <img class="${disponibilidade}" src="${livro.imagem}" alt="${livro.alt}" />
       <h2 class="livro__titulo">
         ${livro.titulo}
       </h2>
@@ -40,15 +40,21 @@ const btn = document.querySelectorAll('.btn');
 btn.forEach(btn => btn.addEventListener('click', filtrarLivros))
 
 function filtrarLivros() {
-  const btnEmUso = document.getElementById(this.id);
-  const categoria = btnEmUso.value;
-  let livrosFiltrados = livros.filter(livros => livros.categoria == categoria);
+  const categoria = this.value;
+  let livrosFiltrados = categoria === 'disponivel' ? filtrarQuantidade() : filtrarCategorias();
   exibirlivro(livrosFiltrados);
 }
-
+function filtrarQuantidade() {
+ livros.filter(livro => livro.quantidade > 0);
+}
+function filtrarCategorias() {
+  livros.filter(livro => livro.categoria === categoria);
+}
 const btnOrdenar = document.getElementById('btnOrdenarPorPreco');
 btnOrdenar.addEventListener('click', () => {
   let livrosOrdenados = livros.sort((a, b) => a.preco - b.preco);
   exibirlivro(livrosOrdenados);
 })
+
+
 
