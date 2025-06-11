@@ -20,6 +20,7 @@ function aplicarDesconto (livros) {
   return livrosComDesconto;
 }
 function exibirlivro(listaDeLivros) {
+  secaoDeLivros.innerHTML = '';
   listaDeLivros.forEach(livro => {
     secaoDeLivros.innerHTML += `<div class="livro">
       <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
@@ -34,4 +35,20 @@ function exibirlivro(listaDeLivros) {
     </div>`
   });
 }
+ 
+const btn = document.querySelectorAll('.btn');
+btn.forEach(btn => btn.addEventListener('click', filtrarLivros))
+
+function filtrarLivros() {
+  const btnEmUso = document.getElementById(this.id);
+  const categoria = btnEmUso.value;
+  let livrosFiltrados = livros.filter(livros => livros.categoria == categoria);
+  exibirlivro(livrosFiltrados);
+}
+
+const btnOrdenar = document.getElementById('btnOrdenarPorPreco');
+btnOrdenar.addEventListener('click', () => {
+  let livrosOrdenados = livros.sort((a, b) => a.preco - b.preco);
+  exibirlivro(livrosOrdenados);
+})
 
