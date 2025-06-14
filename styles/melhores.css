@@ -159,3 +159,28 @@
     justify-content: space-evenly;
   }
 }
+@media screen and (max-width: 750px) {
+  .btn {
+    margin: 1em;
+    height: 38px;
+    width: auto;
+    font-size: 0.9rem;
+  }
+  .livros__disponiveis {
+    font-size: 26px;
+  }
+  .livro {
+    width: 210px;
+    height: 500px;
+  }
+  .livro__imagens {
+    margin-top: 1em;
+  }
+  .livro__descricao {
+    font-size: 16px;
+  }
+  .livro__titulo,
+  .livro__preco {
+    font-size: 18px;
+  }
+}
