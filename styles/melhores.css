@@ -166,7 +166,7 @@
     width: auto;
     font-size: 0.9rem;
   }
-  .livros__disponiveis {
+  .livros__disponiveis p{
     font-size: 24px;
   }
   .livro {
