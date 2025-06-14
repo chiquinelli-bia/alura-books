@@ -46,7 +46,8 @@
     color: var(--laranja);
     font-weight: 700;
 }
-.lista-menu__item {
+.lista-menu__item,
+.melhores-mobile {
     background: var(--azul-degrade);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -59,6 +60,9 @@
  .opcoes,
  .container__botao {
     display: none;
+}
+.melhores-mobile {
+    display: inline-block;  
 }
 
 .container__imagem--favoritos {
@@ -87,6 +91,11 @@
         text-decoration: none;
         color: var(--preto);
     }
+    .melhores-mobile {
+        display: none;
+        text-decoration: none;
+        margin-left: 1rem;
+  }
     .container__imagem--favoritos, .cabecalho__menu-hamburguer, .opcoes__botao {
         display: none;
     }
